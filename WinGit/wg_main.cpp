@@ -5,6 +5,18 @@
 #include "wg_main.h"
 #include "FileCtrl.hpp"
 //---------------------------------------------------------------------------
+/*
+typedef struct
+	{	* result of long long divide *
+	_Longlong quot;
+	_Longlong rem;
+	} _Lldiv_t;
+#ifndef	imaxdiv_t
+typedef _Lldiv_t imaxdiv_t;
+#endif
+*/
+#include <git2/global.h>
+//---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TfrmMain *frmMain;
@@ -52,5 +64,14 @@ void __fastcall TfrmMain::btnSelDirTestClick(TObject *Sender)
 		ShowMessage ("Selected directory:\n" + dir);
 }
 //---------------------------------------------------------------------------
-
+void __fastcall TfrmMain::Button4Click(TObject *Sender)
+{
+	git_libgit2_init();
+}
+//---------------------------------------------------------------------------
+void __fastcall TfrmMain::Button2Click(TObject *Sender)
+{
+	git_libgit2_shutdown();
+}
+//---------------------------------------------------------------------------
 
