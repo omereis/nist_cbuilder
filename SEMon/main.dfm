@@ -19,23 +19,6 @@ object frmMain: TfrmMain
     Top = 35
     Width = 289
     Height = 249
-    Lines.Strings = (
-      '{"sites":{"count":1,"site":[{"id":714303,"name":"Idan '
-      'Cohen '
-      'Gvaot","accountId":53508,"status":"Active","peakPower"'
-      ':7.47,"lastUpdateTime":"2018-11-'
-      '14","installationDate":"2018-05-'
-      '08","ptoDate":null,"notes":"","type":"Optimizers & '
-      'Inverters","location":{"country":"Israel","city":"Giv'#39'ot '
-      'Bar","address":"Yakinton Street, Yakinton '
-      'Street","address2":"","zip":"123456","timeZone":"Asia/Je'
-      'rusalem","countryCode":"IL"},"primaryModule":'
-      '{"manufacturerName":"Suntech","modelName":"STP325-'
-      '24/vfm","maximumPower":325.0,"temperatureCoef":-'
-      '0.8},"uris":'
-      '{"DETAILS":"/site/714303/details","DATA_PERIOD":"/site'
-      '/714303/dataPeriod","OVERVIEW":"/site/714303/overvie'
-      'w"},"publicSettings":{"isPublic":false}}]}}')
     TabOrder = 0
   end
   object btnStatus: TButton

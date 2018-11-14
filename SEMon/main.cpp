@@ -43,6 +43,8 @@ void __fastcall TfrmMain::btnReadClick(TObject *Sender)
 	TJSONObject *jobj = NULL;
 	TJSONArray *ja = NULL;
 	TJSONValue *jv;
+	TJSONPair* jpair;
+	TJSONString *jstring;
 
 	int nCode = RESTResponse1->StatusCode;
 	if (nCode == 0) {
@@ -58,9 +60,9 @@ void __fastcall TfrmMain::btnReadClick(TObject *Sender)
 				jobj->ParseJSONValue(str);
 				str += "";
 				ja = (TJSONArray *) TJSONObject::ParseJSONValue(str);
-				for (int n=0 ; n < ja->Size() ; n++) {
-					jv = ja->Get(n);
-					sj = String (n);
+				for (int n=0 ; n < jobj->Size() ; n++) {
+					jpair = jobj->Get(n);
+					jstring = jpair->JsonString;
 				}
 			} catch (Exception &e) {
 				ShowMessage (e.Message);
