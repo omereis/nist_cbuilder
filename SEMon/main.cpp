@@ -5,6 +5,7 @@
 
 #include "main.h"
 #include "Misc.h"
+#include <System.JSON.hpp>
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -37,9 +38,26 @@ void __fastcall TfrmMain::btnStatusClick(TObject *Sender)
     RESTRequest1->Execute();
 }
 //---------------------------------------------------------------------------
+TJSONObject *__fastcall ReadJSon (const String &strFileName)
+{
+//	String strJSon;
+	TJSONObject *jobj = NULL;
+	TStringList *lstr = new TStringList;
+
+	try {
+		lstr->LoadFromFile(strFileName);
+//		str = lstr->Text;
+		jobj = (TJSONObject *) TJSONObject::ParseJSONValue(lstr->Text, true);
+	}
+	__finally {
+		delete lstr;
+	}
+	return (jobj);
+}
+//---------------------------------------------------------------------------
 void __fastcall TfrmMain::btnReadClick(TObject *Sender)
 {
-	String str, sj;
+	System::UnicodeString str, sj, strJson;
 	TJSONObject *jobj = NULL;
 	TJSONArray *ja = NULL;
 	TJSONValue *jv;
@@ -52,13 +70,20 @@ void __fastcall TfrmMain::btnReadClick(TObject *Sender)
 		str = mmoJSON->Lines->Text;
 	}
 	if (nCode == 200) {
-		str = RESTResponse1->Content;
+//		str = RESTResponse1->Content;
+		str = mmoJSON->Lines->Text;
 		try {
-			jobj = new TJSONObject;
-			ja = new TJSONArray;
+			jobj = ReadJSon ("d:\\Users\\one4\\Documents\\Embarcadero\\Studio\\Projects\\SEMon\\j1.json");
+			if (jobj)
+				ShowMessage (String(jobj->Size()));
+			jobj = (TJSONObject *) TJSONObject::ParseJSONValue(mmoJSON->Lines->Text);
+			if (jobj)
+				ShowMessage (String(jobj->Size()));
+			jobj = (TJSONObject *) TJSONObject::ParseJSONValue(mmoJSON->Lines->Text, true);
+			if (jobj)
+				ShowMessage (String(jobj->Size()));
+/*
 			try {
-				jobj->ParseJSONValue(str);
-				str += "";
 				ja = (TJSONArray *) TJSONObject::ParseJSONValue(str);
 				for (int n=0 ; n < jobj->Size() ; n++) {
 					jpair = jobj->Get(n);
@@ -67,6 +92,7 @@ void __fastcall TfrmMain::btnReadClick(TObject *Sender)
 			} catch (Exception &e) {
 				ShowMessage (e.Message);
 			}
+*/
 		}
 		__finally {
 			if (jobj)

@@ -1,0 +1,146 @@
+\hypertarget{index__intro}{}\section{Introduction}\label{index__intro}
+\href{http://www.json.org/}{\tt J\+S\+ON (Java\+Script Object Notation)} is a lightweight data-\/interchange format.
+
+Here is an example of J\+S\+ON data\+: \begin{DoxyVerb}{
+    "encoding" : "UTF-8",
+    "plug-ins" : [
+        "python",
+        "c++",
+        "ruby"
+        ],
+    "indent" : { "length" : 3, "use_space": true }
+}
+\end{DoxyVerb}
+ {\bfseries Json\+Cpp} supports comments as {\itshape meta-\/data}\+: 
+\begin{DoxyCode}
+\textcolor{comment}{// Configuration options}
+\{
+    \textcolor{comment}{// Default encoding for text}
+    \textcolor{stringliteral}{"encoding"} : \textcolor{stringliteral}{"UTF-8"},
+    
+    \textcolor{comment}{// Plug-ins loaded at start-up}
+    \textcolor{stringliteral}{"plug-ins"} : [
+        \textcolor{stringliteral}{"python"},
+        \textcolor{stringliteral}{"c++"},  \textcolor{comment}{// trailing comment}
+        \textcolor{stringliteral}{"ruby"}
+        ],
+        
+    \textcolor{comment}{// Tab indent size}
+    \textcolor{comment}{// (multi-line comment)}
+    \textcolor{stringliteral}{"indent"} : \{ \textcolor{comment}{/*embedded comment*/} \textcolor{stringliteral}{"length"} : 3, \textcolor{stringliteral}{"use\_space"}: \textcolor{keyword}{true} \}
+\}
+\end{DoxyCode}
+\hypertarget{index__features}{}\section{Features}\label{index__features}
+
+\begin{DoxyItemize}
+\item read and write J\+S\+ON document
+\item attach C++ style comments to element during parsing
+\item rewrite J\+S\+ON document preserving original comments
+\end{DoxyItemize}
+
+Notes\+: Comments used to be supported in J\+S\+ON but were removed for portability (C like comments are not supported in Python). Since comments are useful in configuration/input file, this feature was preserved.\hypertarget{index__example}{}\section{Code example}\label{index__example}
+
+\begin{DoxyCode}
+Json::Value root;   \textcolor{comment}{// 'root' will contain the root value after parsing.}
+std::cin >> root;
+
+\textcolor{comment}{// You can also read into a particular sub-value.}
+std::cin >> root[\textcolor{stringliteral}{"subtree"}];
+
+\textcolor{comment}{// Get the value of the member of root named 'encoding',}
+\textcolor{comment}{// and return 'UTF-8' if there is no such member.}
+std::string encoding = root.get(\textcolor{stringliteral}{"encoding"}, \textcolor{stringliteral}{"UTF-8"} ).asString();
+
+\textcolor{comment}{// Get the value of the member of root named 'plug-ins'; return a 'null' value if}
+\textcolor{comment}{// there is no such member.}
+\textcolor{keyword}{const} Json::Value plugins = root[\textcolor{stringliteral}{"plug-ins"}];
+
+\textcolor{comment}{// Iterate over the sequence elements.}
+\textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} index = 0; index < plugins.size(); ++index )
+   loadPlugIn( plugins[index].asString() );
+   
+\textcolor{comment}{// Try other datatypes. Some are auto-convertible to others.}
+foo::setIndentLength( root[\textcolor{stringliteral}{"indent"}].\textcolor{keyword}{get}(\textcolor{stringliteral}{"length"}, 3).asInt() );
+foo::setIndentUseSpace( root[\textcolor{stringliteral}{"indent"}].\textcolor{keyword}{get}(\textcolor{stringliteral}{"use\_space"}, \textcolor{keyword}{true}).asBool() );
+
+\textcolor{comment}{// Since Json::Value has an implicit constructor for all value types, it is not}
+\textcolor{comment}{// necessary to explicitly construct the Json::Value object.}
+root[\textcolor{stringliteral}{"encoding"}] = foo::getCurrentEncoding();
+root[\textcolor{stringliteral}{"indent"}][\textcolor{stringliteral}{"length"}] = foo::getCurrentIndentLength();
+root[\textcolor{stringliteral}{"indent"}][\textcolor{stringliteral}{"use\_space"}] = foo::getCurrentIndentUseSpace();
+
+\textcolor{comment}{// If you like the defaults, you can insert directly into a stream.}
+std::cout << root;
+\textcolor{comment}{// Of course, you can write to `std::ostringstream` if you prefer.}
+
+\textcolor{comment}{// If desired, remember to add a linefeed and flush.}
+std::cout << std::endl;
+\end{DoxyCode}
+\hypertarget{index__advanced}{}\section{Advanced usage}\label{index__advanced}
+Configure {\itshape builders} to create {\itshape readers} and {\itshape writers}. For configuration, we use our own {\ttfamily Json\+::\+Value} (rather than standard setters/getters) so that we can add features without losing binary-\/compatibility.
+
+
+\begin{DoxyCode}
+\textcolor{comment}{// For convenience, use `writeString()` with a specialized builder.}
+Json::StreamWriterBuilder wbuilder;
+wbuilder[\textcolor{stringliteral}{"indentation"}] = \textcolor{stringliteral}{"\(\backslash\)t"};
+std::string document = Json::writeString(wbuilder, root);
+
+\textcolor{comment}{// Here, using a specialized Builder, we discard comments and}
+\textcolor{comment}{// record errors as we parse.}
+Json::CharReaderBuilder rbuilder;
+rbuilder[\textcolor{stringliteral}{"collectComments"}] = \textcolor{keyword}{false};
+std::string errs;
+\textcolor{keywordtype}{bool} ok = Json::parseFromStream(rbuilder, std::cin, &root, &errs);
+\end{DoxyCode}
+
+
+Yes, compile-\/time configuration-\/checking would be helpful, but {\ttfamily Json\+::\+Value} lets you write and read the builder configuration, which is better! In other words, you can configure your J\+S\+ON parser using J\+S\+ON.
+
+Char\+Readers and Stream\+Writers are not thread-\/safe, but they are re-\/usable. 
+\begin{DoxyCode}
+Json::CharReaderBuilder rbuilder;
+cfg >> rbuilder.settings\_;
+std::unique\_ptr<Json::CharReader> \textcolor{keyword}{const} reader(rbuilder.newCharReader());
+reader->parse(start, stop, &value1, &errs);
+\textcolor{comment}{// ...}
+reader->parse(start, stop, &value2, &errs);
+\textcolor{comment}{// etc.}
+\end{DoxyCode}
+\hypertarget{index__pbuild}{}\section{Build instructions}\label{index__pbuild}
+The build instructions are located in the file \href{https://github.com/open-source-parsers/jsoncpp/blob/master/README.md}{\tt R\+E\+A\+D\+M\+E.\+md} in the top-\/directory of the project.
+
+The latest version of the source is available in the project\textquotesingle{}s Git\+Hub repository\+: \href{https://github.com/open-source-parsers/jsoncpp/}{\tt jsoncpp}\hypertarget{index__news}{}\section{What\textquotesingle{}s New?}\label{index__news}
+The description of latest changes can be found in \href{https://github.com/open-source-parsers/jsoncpp/wiki/NEWS}{\tt the N\+E\+WS wiki }.\hypertarget{index__rlinks}{}\section{Related links}\label{index__rlinks}
+
+\begin{DoxyItemize}
+\item \href{http://www.json.org/}{\tt J\+S\+ON} Specification and alternate language implementations.
+\item \href{http://www.yaml.org/}{\tt Y\+A\+ML} A data format designed for human readability.
+\item \href{http://www.cl.cam.ac.uk/~mgk25/unicode.html}{\tt U\+T\+F-\/8 and Unicode F\+AQ}.
+\end{DoxyItemize}\hypertarget{index__plinks}{}\section{Old project links}\label{index__plinks}
+
+\begin{DoxyItemize}
+\item \href{https://sourceforge.net/projects/jsoncpp/}{\tt https\+://sourceforge.\+net/projects/jsoncpp/}
+\item \href{http://jsoncpp.sourceforge.net}{\tt http\+://jsoncpp.\+sourceforge.\+net}
+\item \href{http://sourceforge.net/projects/jsoncpp/files/}{\tt http\+://sourceforge.\+net/projects/jsoncpp/files/}
+\item \href{http://jsoncpp.svn.sourceforge.net/svnroot/jsoncpp/trunk/}{\tt http\+://jsoncpp.\+svn.\+sourceforge.\+net/svnroot/jsoncpp/trunk/}
+\item \href{http://jsoncpp.sourceforge.net/old.html}{\tt http\+://jsoncpp.\+sourceforge.\+net/old.\+html}
+\end{DoxyItemize}\hypertarget{index__license}{}\section{License}\label{index__license}
+See file \href{https://github.com/open-source-parsers/jsoncpp/blob/master/LICENSE}{\tt {\ttfamily L\+I\+C\+E\+N\+SE}} in the top-\/directory of the project.
+
+Basically Json\+Cpp is licensed under M\+IT license, or public domain if desired and recognized in your jurisdiction.
+
+\begin{DoxyAuthor}{Author}
+Baptiste Lepilleur \href{mailto:blep@users.sourceforge.net}{\tt blep@users.\+sourceforge.\+net} (originator) 
+
+Christopher Dunn \href{mailto:cdunn2001@gmail.com}{\tt cdunn2001@gmail.\+com} (primary maintainer) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ We make strong guarantees about binary-\/compatibility, consistent with \href{http://apr.apache.org/versioning.html}{\tt the Apache versioning scheme}. 
+\end{DoxyVersion}
+\begin{DoxySeeAlso}{See also}
+version.\+h 
+\end{DoxySeeAlso}
