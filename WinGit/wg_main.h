@@ -21,6 +21,15 @@
 #include <Vcl.Bind.DBEngExt.hpp>
 #include <Vcl.Bind.Editors.hpp>
 #include <Vcl.ExtCtrls.hpp>
+#include <REST.Types.hpp>
+//---------------------------------------------------------------------------
+#ifndef _MSC_VER
+#define  _MSC_VER
+#endif
+//---------------------------------------------------------------------------
+#ifdef	__amigaos4__
+#undef   __amigaos4__
+#endif
 //---------------------------------------------------------------------------
 class TfrmMain : public TForm
 {

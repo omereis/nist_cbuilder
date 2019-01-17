@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2019/01/02 07:22:55.000.626,=C:\Users\Omer\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>2019/01/02 07:22:56.000.911,=C:\Users\Omer\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>2019/01/17 09:53:19.632,=C:\Users\Omer\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>2019/01/17 09:53:19.685,=C:\Users\Omer\Documents\Embarcadero\Studio\Projects\File1.c</Transaction>
+    <Transaction>2019/01/17 09:55:28.390,C:\Users\Omer\Documents\Embarcadero\Studio\Projects\WinGit\TestGit.c=C:\Users\Omer\Documents\Embarcadero\Studio\Projects\File1.c</Transaction>
+    <Transaction>2019/01/17 09:55:47.069,C:\Users\Omer\Documents\Embarcadero\Studio\Projects\WinGit\LibGitTester.h=C:\Users\Omer\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>2019/01/17 09:56:00.526,C:\Users\Omer\Documents\Embarcadero\Studio\Projects\WinGit\GitTest.cbproj=C:\Users\Omer\Documents\Embarcadero\Studio\Projects\Project1.cbproj</Transaction>
+    <Transaction>2019/01/17 10:08:52.596,=C:\Users\Omer\Documents\Embarcadero\Studio\Projects\WinGit\lib\git2b.lib</Transaction>
+  </Transactions>
+</BorlandProject>

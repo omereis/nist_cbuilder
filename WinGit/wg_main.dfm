@@ -98,64 +98,6 @@ object frmMain: TfrmMain
       Top = 24
       Width = 281
       Height = 249
-      Lines.Strings = (
-        '[{"internalId":"5ba651504ad8714da424660c","ticker":"'
-        'CCEUSP01JPA651N","date":"1999-01-'
-        '01T00:00:00Z","value":0.973425484279178},'
-        '{"internalId":"5ba651504ad8714da4246626","ticker":"C'
-        'CEUSP01JPA651N","date":"2000-01-'
-        '01T00:00:00Z","value":0.935278713056491},'
-        '{"internalId":"5ba651504ad8714da424662f","ticker":"C'
-        'CEUSP01JPA651N","date":"2001-01-'
-        '01T00:00:00Z","value":0.867077083152692},'
-        '{"internalId":"5ba651504ad8714da4246638","ticker":"C'
-        'CEUSP01JPA651N","date":"2002-01-'
-        '01T00:00:00Z","value":0.803923144947343},'
-        '{"internalId":"5ba651504ad8714da4246677","ticker":"C'
-        'CEUSP01JPA651N","date":"2003-01-'
-        '01T00:00:00Z","value":0.740466493891151},'
-        '{"internalId":"5ba651504ad8714da424667f","ticker":"C'
-        'CEUSP01JPA651N","date":"2004-01-'
-        '01T00:00:00Z","value":0.716075904045829},'
-        '{"internalId":"5ba651504ad8714da424668d","ticker":"C'
-        'CEUSP01JPA651N","date":"2005-01-'
-        '01T00:00:00Z","value":0.719942404607631},'
-        '{"internalId":"5ba651504ad8714da4246696","ticker":"C'
-        'CEUSP01JPA651N","date":"2006-01-'
-        '01T00:00:00Z","value":0.63722678901421},'
-        '{"internalId":"5ba651504ad8714da42466a4","ticker":"C'
-        'CEUSP01JPA651N","date":"2007-01-'
-        '01T00:00:00Z","value":0.606317831807433},'
-        '{"internalId":"5ba651504ad8714da42466b2","ticker":"C'
-        'CEUSP01JPA651N","date":"2008-01-'
-        '01T00:00:00Z","value":0.792769938163945},'
-        '{"internalId":"5ba651504ad8714da42466c6","ticker":"C'
-        'CEUSP01JPA651N","date":"2009-01-'
-        '01T00:00:00Z","value":0.750976269149895},'
-        '{"internalId":"5ba651504ad8714da42466d5","ticker":"C'
-        'CEUSP01JPA651N","date":"2010-01-'
-        '01T00:00:00Z","value":0.92038656235619},'
-        '{"internalId":"5ba651504ad8714da42466e2","ticker":"C'
-        'CEUSP01JPA651N","date":"2011-01-'
-        '01T00:00:00Z","value":0.998003992015968},'
-        '{"internalId":"5ba651504ad8714da42466ec","ticker":"C'
-        'CEUSP01JPA651N","date":"2012-01-'
-        '01T00:00:00Z","value":0.880204207376111},'
-        '{"internalId":"5ba651504ad8714da42466ff","ticker":"C'
-        'CEUSP01JPA651N","date":"2013-01-'
-        '01T00:00:00Z","value":0.690989496959646},'
-        '{"internalId":"5ba651504ad8714da424670f","ticker":"C'
-        'CEUSP01JPA651N","date":"2014-01-'
-        '01T00:00:00Z","value":0.688562969083523},'
-        '{"internalId":"5ba651504ad8714da4246721","ticker":"C'
-        'CEUSP01JPA651N","date":"2015-01-'
-        '01T00:00:00Z","value":0.762951094834821},'
-        '{"internalId":"5ba651504ad8714da424672b","ticker":"C'
-        'CEUSP01JPA651N","date":"2016-01-'
-        '01T00:00:00Z","value":0.810372771474878},'
-        '{"internalId":"5ba651504ad8714da4246748","ticker":"C'
-        'CEUSP01JPA651N","date":"2017-01-'
-        '01T00:00:00Z","value":0.740685875120362}]')
       TabOrder = 0
     end
   end
@@ -175,7 +117,6 @@ object frmMain: TfrmMain
     AcceptCharset = 'UTF-8, *;q=0.8'
     BaseURL = 'http://www.webservicex.net:500/Prices'
     Params = <>
-    HandleRedirects = True
     Left = 48
     Top = 32
   end
@@ -183,7 +124,7 @@ object frmMain: TfrmMain
     Client = RESTClient1
     Params = <
       item
-        name = 'ticker'
+        Name = 'ticker'
         Value = 'CCEUSP01JPA651N'
       end>
     Response = RESTResponse1

@@ -1,0 +1,33 @@
+#pragma hdrstop
+#pragma argsused
+
+#include <stdio.h>
+#include <CONIO.h>
+
+#ifdef _WIN32
+#include <tchar.h>
+#else
+  typedef char _TCHAR;
+  #define _tmain main
+#endif
+//-----------------------------------------------------------------------------
+#include "common.h"
+#include <assert.h>
+//-----------------------------------------------------------------------------
+enum print_options {
+	SKIP = 1,
+	VERBOSE = 2,
+	UPDATE = 4,
+};
+//-----------------------------------------------------------------------------
+struct print_payload {
+	enum print_options options;
+	git_repository *repo;
+};
+
+//-----------------------------------------------------------------------------
+int _tmain(int argc, _TCHAR* argv[])
+{
+	printf("Hello, world!\n");
+	getch ();
+}
