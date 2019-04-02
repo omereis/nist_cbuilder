@@ -25,15 +25,36 @@
 #include <FireDAC.UI.Intf.hpp>
 #include <FireDAC.VCLUI.Wait.hpp>
 #include <Vcl.Dialogs.hpp>
+#include <Vcl.ComCtrls.hpp>
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
 __published:	// IDE-managed Components
 	TFDConnection *WatertemperaturesConnection;
-	TButton *Button1;
+	TButton *btnLoadFile;
 	TOpenDialog *dlgOpenTxt;
-	void __fastcall Button1Click(TObject *Sender);
+	TMemo *memoFileData;
+	TLabel *Label1;
+	TEdit *edtLines;
+	TButton *btnUpdate;
+	TButton *Button1;
+	TButton *Button2;
+	TLabel *Label2;
+	TLabel *Label3;
+	TLabel *Label4;
+	TEdit *edtChannels;
+	TEdit *edtDataStart;
+	TEdit *edtHeadings;
+	TUpDown *udChannels;
+	TUpDown *udHeading;
+	TUpDown *udDataStart;
+	void __fastcall btnLoadFileClick(TObject *Sender);
+	void __fastcall FormCreate(TObject *Sender);
 private:	// User declarations
+	int m_rowChannels;
+	int m_rowHeadings;
+	int m_rowDataStart;
+protected:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
 };

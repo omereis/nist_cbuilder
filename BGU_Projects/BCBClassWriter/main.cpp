@@ -174,7 +174,10 @@ void __fastcall TformMain::miClearClick(TObject */*Sender*/)
 //---------------------------------------------------------------------------
 void __fastcall TformMain::Clear()
 {
-	Download (TClassInfo ());
+	TClassInfo ci;
+
+	Download (ci);
+//	Download (TClassInfo ());
 	m_strParamsFile = "";
 /*
 	edtClassFile->Text = "";
@@ -335,7 +338,7 @@ void __fastcall TformMain::actMembersDelExecute(TObject */*Sender*/)
 
 	UploadMemberRow (nRow, member);
 	strMsg = "Delete " + member.MemberName + "?";
-	if (MessageBox (Handle, strMsg.c_str(), "Confirm Deletion", MB_YESNO | MB_ICONQUESTION | MB_DEFBUTTON2) == IDYES) {
+	if (MessageBox (Handle, (const char*) strMsg.c_str(), (const char*) L"Confirm Deletion", MB_YESNO | MB_ICONQUESTION | MB_DEFBUTTON2) == IDYES) {
 		DeleteRow (gridMembers, gridMembers->Row);
 		m_fChange = true;
 	}

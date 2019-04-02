@@ -1,17 +1,28 @@
 //----------------------------------------------------------------------------
 #ifndef EditMemberH
 #define EditMemberH
-//----------------------------------------------------------------------------
-#include <vcl\System.hpp>
-#include <vcl\Windows.hpp>
-#include <vcl\SysUtils.hpp>
-#include <vcl\Classes.hpp>
-#include <vcl\Graphics.hpp>
-#include <vcl\StdCtrls.hpp>
-#include <vcl\Forms.hpp>
-#include <vcl\Controls.hpp>
-#include <vcl\Buttons.hpp>
-#include <vcl\ExtCtrls.hpp>
+#include <System.Classes.hpp>
+
+#include <Vcl.Buttons.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.ExtCtrls.hpp>
+#include <Vcl.StdCtrls.hpp>/
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.ExtCtrls.hpp>
+
+#include <Vcl.StdCtrls.hpp>#include <Vcl.Controls.hpp>/
+#include <Vcl.ExtCtrls.hpp>-
+#include <Vcl.StdCtrls.hpp>---------------------------------------------------------------------------
+#include <Windows\rtl\System.hpp>
+#include <Windows\rtl\Windows.hpp>
+#include <Windows\rtl\SysUtils.hpp>
+#include <Windows\rtl\Classes.hpp>
+#include <Windows\vcl\Graphics.hpp>
+#include <Windows\vcl\StdCtrls.hpp>
+#include <Windows\vcl\Forms.hpp>
+#include <Windows\vcl\Controls.hpp>
+#include <Windows\vcl\Buttons.hpp>
+#include <Windows\vcl\ExtCtrls.hpp>
 //----------------------------------------------------------------------------
 #include "ClassMemberInfo.h"
 //----------------------------------------------------------------------------

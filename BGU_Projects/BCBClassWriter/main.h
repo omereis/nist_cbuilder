@@ -21,7 +21,9 @@
 #include <inifiles.hpp>
 #include "ClassInfo.h"
 #include <Buttons.hpp>
-//---------------------------------------------------------------------------
+#include <System.Actions.hpp>
+
+#include <System.ImageList.hpp>//---------------------------------------------------------------------------
 class TformMain : public TForm
 {
 __published:	// IDE-managed Components

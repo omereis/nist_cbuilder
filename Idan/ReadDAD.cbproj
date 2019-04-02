@@ -111,6 +111,10 @@
         <BCC_PCHName_Clang>ReadDADPCH1.h</BCC_PCHName_Clang>
     </PropertyGroup>
     <ItemGroup>
+        <CppCompile Include="ChannelData.cpp">
+            <DependentOn>ChannelData.h</DependentOn>
+            <BuildOrder>3</BuildOrder>
+        </CppCompile>
         <CppCompile Include="main.cpp">
             <Form>Form1</Form>
             <FormType>dfm</FormType>
@@ -124,6 +128,10 @@
             <BuildOrder>1</BuildOrder>
             <PCH>true</PCH>
         </PCHCompile>
+        <CppCompile Include="SampleInfo.cpp">
+            <DependentOn>SampleInfo.h</DependentOn>
+            <BuildOrder>4</BuildOrder>
+        </CppCompile>
         <FormResources Include="main.dfm"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
