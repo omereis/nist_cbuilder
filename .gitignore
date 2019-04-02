@@ -9,6 +9,7 @@
 *.tds
 *.#0*
 *.map
+*.vlb
 __history/**/*
 __recovery/**/*
 libgit2/**/*
@@ -21,3 +22,5 @@ CMake/*
 SEMon/Win32/*
 SEMon/__history/*
 SEMon/__recovery/*
+__recovery/
+__history/

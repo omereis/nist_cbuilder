@@ -126,4 +126,12 @@ void __fastcall ClearGridRow (TStringGrid *grid, int nRow)
 	}
 }
 //---------------------------------------------------------------------------
+String __fastcall RemoveCRLF (const String &strSrc)
+{
+	String str = StringReplace (strSrc, "\t","", TReplaceFlags () << rfReplaceAll);
+	String strNoCR = StringReplace (str, "\n","", TReplaceFlags () << rfReplaceAll);
+	String strNoCRLF = StringReplace (strNoCR, "\r","", TReplaceFlags () << rfReplaceAll);
+	return (strNoCRLF);
+}
+//---------------------------------------------------------------------------
 

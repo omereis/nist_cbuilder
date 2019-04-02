@@ -41,12 +41,14 @@ __published:	// IDE-managed Components
 	TStringGrid *gridStatus;
 	TButton *btnRead;
 	TMemo *mmoJSON;
+	TMemo *Memo2;
 	void __fastcall bitbtnSolarEdgeClick(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall btnStatusClick(TObject *Sender);
 	void __fastcall btnReadClick(TObject *Sender);
 private:	// User declarations
 	void __fastcall TfrmMain::InitStatusGrid ();
+	void __fastcall JSonToStringGrid (const String &strText, int nRow, int nLevel);
 public:		// User declarations
 	__fastcall TfrmMain(TComponent* Owner);
 };

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2019/04/01 17:05:35.000.625,=D:\Users\one4\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>2019/04/01 17:05:35.000.757,=D:\Users\one4\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>2019/04/01 17:06:09.000.661,D:\Users\one4\Documents\Embarcadero\Studio\Projects\Unit1.h=D:\Users\one4\Documents\Embarcadero\Studio\Projects\Idan\main.h</Transaction>
+    <Transaction>2019/04/01 17:06:09.000.661,D:\Users\one4\Documents\Embarcadero\Studio\Projects\Unit1.cpp=D:\Users\one4\Documents\Embarcadero\Studio\Projects\Idan\main.cpp</Transaction>
+    <Transaction>2019/04/01 17:06:09.000.661,D:\Users\one4\Documents\Embarcadero\Studio\Projects\Unit1.dfm=D:\Users\one4\Documents\Embarcadero\Studio\Projects\Idan\main.dfm</Transaction>
+    <Transaction>2019/04/01 17:06:15.000.966,D:\Users\one4\Documents\Embarcadero\Studio\Projects\Project1PCH1.h=D:\Users\one4\Documents\Embarcadero\Studio\Projects\Idan\Project1PCH1.h</Transaction>
+    <Transaction>2019/04/01 17:06:27.000.340,D:\Users\one4\Documents\Embarcadero\Studio\Projects\Idan\Project1PCH1.h=D:\Users\one4\Documents\Embarcadero\Studio\Projects\Idan\ReadDADPCH1.h</Transaction>
+    <Transaction>2019/04/01 17:06:27.000.454,D:\Users\one4\Documents\Embarcadero\Studio\Projects\Project1.cbproj=D:\Users\one4\Documents\Embarcadero\Studio\Projects\Idan\ReadDAD.cbproj</Transaction>
+  </Transactions>
+</BorlandProject>

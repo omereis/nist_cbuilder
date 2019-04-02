@@ -3,11 +3,11 @@
 	<Transactions>
     <Transaction>2018/08/24 11:02:34.000.725,=D:\Users\one4\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
     <Transaction>2018/08/24 11:02:34.000.854,=D:\Users\one4\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
-    <Transaction>2018/08/24 11:03:46.000.693,D:\Users\one4\Documents\Embarcadero\Studio\Projects\WinGit\wg_main.h=D:\Users\one4\Documents\Embarcadero\Studio\Projects\Unit1.h</Transaction>
-    <Transaction>2018/08/24 11:03:46.000.692,D:\Users\one4\Documents\Embarcadero\Studio\Projects\WinGit\wg_main.cpp=D:\Users\one4\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
-    <Transaction>2018/08/24 11:03:46.000.693,D:\Users\one4\Documents\Embarcadero\Studio\Projects\WinGit\wg_main.dfm=D:\Users\one4\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>2018/08/24 11:04:01.000.607,D:\Users\one4\Documents\Embarcadero\Studio\Projects\WinGit\WinGitPCH1.h=D:\Users\one4\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
-    <Transaction>2018/08/24 11:04:10.000.883,D:\Users\one4\Documents\Embarcadero\Studio\Projects\WinGit\WinGit.cbproj=D:\Users\one4\Documents\Embarcadero\Studio\Projects\Project1.cbproj</Transaction>
+    <Transaction>2018/08/24 11:03:46.000.693,D:\Users\one4\Documents\Embarcadero\Studio\Projects\Unit1.dfm=D:\Users\one4\Documents\Embarcadero\Studio\Projects\WinGit\wg_main.dfm</Transaction>
+    <Transaction>2018/08/24 11:03:46.000.693,D:\Users\one4\Documents\Embarcadero\Studio\Projects\Unit1.h=D:\Users\one4\Documents\Embarcadero\Studio\Projects\WinGit\wg_main.h</Transaction>
+    <Transaction>2018/08/24 11:03:46.000.692,D:\Users\one4\Documents\Embarcadero\Studio\Projects\Unit1.cpp=D:\Users\one4\Documents\Embarcadero\Studio\Projects\WinGit\wg_main.cpp</Transaction>
+    <Transaction>2018/08/24 11:04:01.000.607,D:\Users\one4\Documents\Embarcadero\Studio\Projects\Project1PCH1.h=D:\Users\one4\Documents\Embarcadero\Studio\Projects\WinGit\WinGitPCH1.h</Transaction>
+    <Transaction>2018/08/24 11:04:10.000.883,D:\Users\one4\Documents\Embarcadero\Studio\Projects\Project1.cbproj=D:\Users\one4\Documents\Embarcadero\Studio\Projects\WinGit\WinGit.cbproj</Transaction>
     <Transaction>2018/09/27 09:18:57.000.703,=D:\Users\one4\Documents\Embarcadero\Studio\Projects\libgit2\libgit2-0.27.4\build\Debug\git2.lib</Transaction>
     <Transaction>2018/09/27 09:27:06.000.097,D:\Users\one4\Documents\Embarcadero\Studio\Projects\libgit2\libgit2-0.27.4\build\Debug\git2.lib=</Transaction>
     <Transaction>2018/09/27 09:27:35.000.210,=D:\Users\one4\Documents\Embarcadero\Studio\Projects\libgit2\libgit2-0.27.4\build\Debug\git2.lib</Transaction>

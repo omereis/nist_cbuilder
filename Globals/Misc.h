@@ -18,7 +18,8 @@ void __fastcall SaveIni (const String &strFile, const String &strSec, const Stri
 String __fastcall LoadIniString  (const String &strFile, const String &strSec, const String &Ident);
 void __fastcall SetComboText (TComboBox *combo, const String &str);
 void __fastcall ClearGridRow (TStringGrid *grid, int nRow);
-void __fastcall DeleteLine (TStringGrid *grid, int nRow)
-;
+void __fastcall DeleteLine (TStringGrid *grid, int nRow);
+String __fastcall RemoveCRLF (const String &strSrc);
+
 //---------------------------------------------------------------------------
 #endif

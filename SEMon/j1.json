@@ -1,14 +1,76 @@
-{"sites":{"count":1,"site":
-[{"id":714303,"name":"Idan Cohen Gvaot","accountId":53508,"status":
-"Active","peakPower"
-:7.47,"lastUpdateTime":"2018-11-14","installationDate":"2018-05-08","ptoDate":null,"notes":"","type"
-:"Optimizers & Inverters","location":
-{"country":"Israel","city":"Giv'ot Bar","address":"Yakinton Street, Yakinton Street","address2":"","zip":
-"123456","timeZone":"Asia/Jerusalem","countryCode":"IL"},
-"primaryModule":
-{"manufacturerName":"Suntech",
-"modelName":"STP325-24/vfm","maximumPower":325.0,"temperatureCoef":-0.8},"uris":
-{"DETAILS":"/site/714303/details","DATA_PERIOD":"/site/714303/dataPeriod","OVERVIEW":
-"/site/714303/overview"},"publicSettings":
-{"isPublic":false}}]}}
+{"sites":
+	{"count":1,
+	"site":[
+		{"id":714303,
+		"name":"Idan Cohen Gvaot",
+		"accountId":53508,
+		"status":"Active",
+		"peakPower":7.47,
+		"lastUpdateTime":"2018-11-14",
+		"installationDate":"2018-05-08",
+		"ptoDate":null,
+		"notes":"",
+		"type":"Optimizers & Inverters",
+		"location":{"country":"Israel",
+				"city":"Giv'ot Bar",
+				"address":"Yakinton Street,Yakinton Street",
+				"address2":"",
+				"zip":"123456",
+				"timeZone":"Asia/Jerusalem",
+				"countryCode":"IL"},
+		"primaryModule":{"manufacturerName":"Suntech",
+				"modelName":"STP325-24/vfm",
+				"maximumPower":325.0,
+				"temperatureCoef":-0.8},
+		"uris":{"DETAILS":"/site/714303/details",
+				"DATA_PERIOD":"/site/714303/dataPeriod",
+				"OVERVIEW":"/site/714303/overview"},
+		"publicSettings":{"isPublic":false}}
+		]
+	}
+}
 
+
+var soj = {"sites":["count":1,"site":714303]};
+
+{
+	"sites": [a, b, c, d, e, f, g]
+}
+
+
+Basically, a regular expression is a pattern describing a certain amount of text. Their name comes from the
+mathematical theory on which they are based. But we will not dig into that. Since most people including
+myself are lazy to type, you will usually find the name abbreviated to regex or regexp. I prefer regex, because
+it is easy to pronounce the plural “regexes”. In this book, regular expressions are printed between guillemots:
+«regex». They clearly separate the pattern from the surrounding text and punctuation.
+This first example is actually a perfectly valid regex. It is the most basic pattern, simply matching the literal
+text „regex”. A "match" is the piece of text, or sequence of bytes or characters that pattern was found to
+correspond to by the regex processing software. Matches are indicated by double quotation marks, with the
+left one at the base of the line.
+«\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b» is a more complex pattern. It describes a series of
+letters, digits, dots, underscores, percentage signs and hyphens, followed by an at sign, followed by another
+series of letters, digits and hyphens, finally followed by a single dot and between two and four letters. In other
+words: this pattern describes an email address.
+With the above regular expression pattern, you can search through a text file to find email addresses, or verify
+if a given string looks like an email address. In this tutorial, I will use the term “string” to indicate the text that
+I am applying the regular expression to. I will indicate strings using regular double quotes. The term “string”
+or “character string” is used by programmers to indicate a sequence of characters. In practice, you can use
+regular expressions with whatever data you can access using the application or programming language you are
+working with.
+
+Jack is a boy
+
+{
+	"sites": {
+		"count": 1,
+		"site": [{
+			"id": 714303,
+			"name": "Idan Cohen Gvaot"
+		}]
+	}
+}
+
+מצורף המכתב.
+מי מעוניין?
+חשבתי לשלוח לכם משהו קטן: דיבורית שמשדרת לרדיו של האוטו
+https://www.amazon.com/gp/product/B06XJ1YZSH/ref=oh_aui_detailpage_o04_s00?ie=UTF8&psc=1

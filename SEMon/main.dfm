@@ -2,7 +2,7 @@ object frmMain: TfrmMain
   Left = 0
   Top = 0
   Caption = 'SolarEdge Site Monitor'
-  ClientHeight = 336
+  ClientHeight = 340
   ClientWidth = 803
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -15,8 +15,8 @@ object frmMain: TfrmMain
   PixelsPerInch = 96
   TextHeight = 13
   object Memo1: TMemo
-    Left = 312
-    Top = 35
+    Left = 64
+    Top = 66
     Width = 289
     Height = 249
     TabOrder = 0
@@ -129,14 +129,14 @@ object frmMain: TfrmMain
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 317
+    Top = 321
     Width = 803
     Height = 19
     Panels = <>
   end
   object StatusBar2: TStatusBar
     Left = 0
-    Top = 298
+    Top = 302
     Width = 803
     Height = 19
     Panels = <>
@@ -185,36 +185,19 @@ object frmMain: TfrmMain
   end
   object mmoJSON: TMemo
     Left = 560
-    Top = 120
+    Top = 103
     Width = 185
-    Height = 89
-    Lines.Strings = (
-      '{"sites":{"count":1,"site":'
-      '[{"id":714303,"name":"Idan Cohen '
-      'Gvaot","accountId":53508,"status":'
-      '"Active","peakPower"'
-      ':7.47,"lastUpdateTime":"2018-11-'
-      '14","installationDate":"2018-05-'
-      '08","ptoDate":null,"notes":"","type"'
-      ':"Optimizers & Inverters","location":'
-      '{"country":"Israel","city":"Giv'#39'ot '
-      'Bar","address":"Yakinton Street, '
-      'Yakinton '
-      'Street","address2":"","zip":'
-      '"123456","timeZone":"Asia/Jerusale'
-      'm","countryCode":"IL"},'
-      '"primaryModule":'
-      '{"manufacturerName":"Suntech",'
-      '"modelName":"STP325-'
-      '24/vfm","maximumPower":325.0,"t'
-      'emperatureCoef":-0.8},"uris":'
-      '{"DETAILS":"/site/714303/details","'
-      'DATA_PERIOD":"/site/714303/data'
-      'Period","OVERVIEW":'
-      '"/site/714303/overview"},"publicSet'
-      'tings":'
-      '{"isPublic":false}}]}}')
+    Height = 193
     TabOrder = 8
+  end
+  object Memo2: TMemo
+    Left = 359
+    Top = 66
+    Width = 195
+    Height = 249
+    Lines.Strings = (
+      'Memo2')
+    TabOrder = 9
   end
   object RESTClient1: TRESTClient
     Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8,'
