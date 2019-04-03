@@ -4,7 +4,7 @@
 #define CommonStringsH
 //---------------------------------------------------------------------------
 extern String FastCall;
-extern String  Space;
+extern String  SingleSpace;
 extern String  Bool;
 extern String  Void;
 extern String  Property;

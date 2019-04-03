@@ -10,6 +10,7 @@
 *.#0*
 *.map
 *.vlb
+*.pdi
 __history/**/*
 __recovery/**/*
 libgit2/**/*

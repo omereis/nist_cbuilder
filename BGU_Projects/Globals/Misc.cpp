@@ -29,16 +29,27 @@ void __fastcall PurgeGrid (TStringGrid *grid)
 	ClearGrid (grid);
 	grid->RowCount = grid->FixedRows + 1;
 }
+#include <string>
 //---------------------------------------------------------------------------
 String __fastcall Reverse (const String &strSrc)
 {
-	int len = strSrc.Length() + 1;
-	char *sz = new char [len];
-	strcpy (sz, strSrc.c_str());
-	strrev (sz);
-	String strRev = String (sz);
-	delete[] sz;
-	return (strRev);
+	String strReversed;
+
+	if (strSrc.Length() > 0) {
+		try {
+			int iSrc, iDest, n;
+			iDest = 1;
+			iSrc = strSrc.Length();
+			for (n=0 ; n < strSrc.Length() ; n++, iSrc--, iDest++) {
+				strReversed += strSrc[n];
+			}
+
+		} catch (...) {
+            strReversed = "";
+		}
+
+	}
+	return (strReversed);
 }
 //---------------------------------------------------------------------------
 void __fastcall WriteH (FILE *fileInclude, const String &strPrototype)

@@ -10,7 +10,7 @@
 #pragma package(smart_init)
 //---------------------------------------------------------------------------
 String FastCall = "__fastcall";
-String Space    = " ";
+String SingleSpace    = " ";
 String Bool     = "bool";
 String Float    = "float";
 String Int       = "int";

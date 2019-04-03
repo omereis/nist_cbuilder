@@ -308,7 +308,7 @@ String __fastcall TClassInfo::FormatProperty (TClassMemberInfo &member)
 {
 	String str;
 
-	str = "\t" + Property + Space + member.Type + Space + member.PropertyName;
+	str = "\t" + Property + SingleSpace + member.Type + SingleSpace + member.PropertyName;
 	str += " = {read=" + member.GetterName() + ", write=" + member.SetterName () + "};";
 	return (str);
 }
@@ -338,7 +338,7 @@ void __fastcall TClassInfo::WriteMembersH (TStringList *lstr)
 	TMembers::iterator iMember;
 
 	for (iMember=m_Members.begin() ; iMember < m_Members.end() ; iMember++) {
-		str = "\t" + iMember->Type + Space + iMember->MemberName + ";";
+		str = "\t" + iMember->Type + SingleSpace + iMember->MemberName + ";";
 		lstr->Add (str);
 	}
 	lstr->Add (GetSepLine ());
@@ -378,7 +378,7 @@ String __fastcall TClassInfo::MakeOtherParam ()
 {
 	String str;
 
-	str = Const + Space + Name + " &" + Other;
+	str = Const + SingleSpace + Name + " &" + Other;
 	return (str);
 }
 //---------------------------------------------------------------------------
@@ -479,7 +479,7 @@ String __fastcall TClassInfo::GetMemberSetterParam (TClassMemberInfo &member)
 {
 	String strParam;
 
-	strParam = Const + Space + member.Type + Space;
+	strParam = Const + SingleSpace + member.Type + SingleSpace;
 	if (member.UseReference)
 		strParam += "&";
 	strParam += Value;
@@ -490,7 +490,7 @@ void __fastcall TClassInfo::WriteSetter (TStringList *lstrSrc, TClassMemberInfo 
 {
 	String strBody, strHeader, strParam;
 
-//	strParam = Const + Space + member.Type + Space;
+//	strParam = Const + SingleSpace + member.Type + SingleSpace;
 //	if (member.UseReference)
 //		strParam += "&";
 //	strParam += Value;
@@ -785,9 +785,9 @@ void __fastcall TClassInfo::WriteStaticVars (TStringList *lstr)
 	TMembers::iterator iMember;
 
 	lstr->Add ("// ---------- S t a t i c ----------");
-	lstr->Add (Tab + Static + Space + StrName + Space + StrTable + SC);
+	lstr->Add (Tab + Static + SingleSpace + StrName + SingleSpace + StrTable + SC);
 	for (iMember=m_Members.begin() ; iMember != m_Members.end() ; iMember++) {
-		lstr->Add (Tab + Static + Space + StrName + Space + iMember->MemberField + SC);
+		lstr->Add (Tab + Static + SingleSpace + StrName + SingleSpace + iMember->MemberField + SC);
 	}
 }
 //---------------------------------------------------------------------------
@@ -813,8 +813,8 @@ void __fastcall TClassInfo::WriteHeaderStart (TStringList *lstr)
 	lstr->Add (Define + Tab + strDefine);
 	lstr->Add (GetSepLine ());
 	if (Database) {
-		lstr->Add (DirInclude + Space + "<ADODB.hpp>");
-		lstr->Add (DirInclude + Space + DQuote + "DBMisc.h" + DQuote);
+		lstr->Add (DirInclude + SingleSpace + "<ADODB.hpp>");
+		lstr->Add (DirInclude + SingleSpace + DQuote + "DBMisc.h" + DQuote);
 	}
 	if (Vector) {
 		lstr->Add (DirInclude + " <vector>");
@@ -849,10 +849,10 @@ void __fastcall TClassInfo::WriteConstVars (TStringList *lstr)
 	int n;
 	String str, strPre;
 
-	strPre = StrName + Space + Name + "::";
+	strPre = StrName + SingleSpace + Name + "::";
 	lstrMembers->Add (strPre + StrTable);
 	for (iMember=m_Members.begin() ; iMember != m_Members.end() ; iMember++)
-		lstrMembers->Add (StrName + Space + Name + "::" + iMember->MemberField);
+		lstrMembers->Add (StrName + SingleSpace + Name + "::" + iMember->MemberField);
 	AlignList (lstrMembers);
 	str = lstrMembers->Strings[0];
 	str += "(" + DQuote + SqlTable + DQuote + ")" + SC;
@@ -1012,8 +1012,8 @@ void __fastcall TClassInfo::WriteLoadItemSrc (TStringList *lstrSrc)
 	int n;
 
 	strHeader = GetLoadItemHeader (false, true, true);
-	lstrBody->Add (Bool + Space + F_Var + EQ + TrueStr + SC);
-//	lstrBody->Add (AdoQuery + Space + Query + EQ + InitQueryCall + SC);
+	lstrBody->Add (Bool + SingleSpace + F_Var + EQ + TrueStr + SC);
+//	lstrBody->Add (AdoQuery + SingleSpace + Query + EQ + InitQueryCall + SC);
 	lstrBody->Add ("");
 //	lstrBody->Add (F_Var + EQ + LoadFromDBStr + " (" + Query + ", " + StrErrName + ");");
 	lstrBody->Add (TryStart);
@@ -1044,14 +1044,14 @@ void __fastcall TClassInfo::WriteInsertItem (TStringList *lstrSrc)
 
 	iKeyMember = m_Members.GetIDMemberName ();
 	if (iKeyMember != NULL) {
-		lstrBody->Add (IntStr + Space + IdName + SC);
-		lstrBody->Add (Bool + Space + F_Var + SC);
-		lstrBody->Add (StrName + Space + SqlStr + SC);
+		lstrBody->Add (IntStr + SingleSpace + IdName + SC);
+		lstrBody->Add (Bool + SingleSpace + F_Var + SC);
+		lstrBody->Add (StrName + SingleSpace + SqlStr + SC);
 		lstrBody->Add ("");
 		lstrBody->Add (F_Var + EQ + "GetFieldMax (" + Query + Comma + MemberTable + Comma + iKeyMember->MemberField + Comma + IdName + ");");
 //		kstrBody->Add ("if (" + FName + ") {";
 		lstrBody->Add (IfF);
-		lstrBody->Add (Tab + SqlStr + EQ + DQuote + SqlInsert + Space + SqlInto + Space + DQuote +
+		lstrBody->Add (Tab + SqlStr + EQ + DQuote + SqlInsert + SingleSpace + SqlInto + SingleSpace + DQuote +
 						Plus + MemberTable + Plus + DQuote + "(" + DQuote + Plus +
 						iKeyMember->MemberField + Plus + DQuote + ") values (" + DQuote +
 						Plus + StrName + " (" + IdName + Plus + "1)" +
@@ -1072,11 +1072,11 @@ void __fastcall TClassInfo::PerformInDB (TStringList *lstrSrc, const String &str
 	TStringList *lstrBody = new TStringList;
 
 	strHeader = GetDPMethodHeader (strMethd, true, false, true);
-	lstrBody->Add (Bool + Space + F_Var + SC);
+	lstrBody->Add (Bool + SingleSpace + F_Var + SC);
 	lstrBody->Add (AdoQuery + Query + EQ + InitQueryCall + SC);
 	lstrBody->Add ("");
 	lstrBody->Add (F_Var + EQ + strMethd + "(" + Query + Comma + StrErrName + ");");
-	lstrBody->Add (Delete + Space + Query + SC);
+	lstrBody->Add (Delete + SingleSpace + Query + SC);
 	lstrBody->Add (ReturnF);
 	AddProc (lstrSrc, strHeader, lstrBody);
 	delete lstrBody;
@@ -1102,12 +1102,12 @@ void __fastcall TClassInfo::WriteUpdateItem (TStringList *lstrSrc)
 	strHeader = GetDPMethodHeader (UpdateMethod, true, true, true);
 	iKeyMember = m_Members.GetIDMemberName ();
 	if (iKeyMember != NULL) {
-		lstrBody->Add (StrName + Space + SqlStr + SC);
-		lstrBody->Add (Bool + Space + F_Var + SC);
+		lstrBody->Add (StrName + SingleSpace + SqlStr + SC);
+		lstrBody->Add (Bool + SingleSpace + F_Var + SC);
 		lstrBody->Add ("");
-		strSet = SqlStr + EQ + DQuote + SqlUpdate + Space + DQuote + Plus + MemberTable
-						 + Plus + DQuote + SqlSet + DQuote + Space + Plus;
-		strWhere = DQuote + SqlWhere + Space + DQuote + Plus +
+		strSet = SqlStr + EQ + DQuote + SqlUpdate + SingleSpace + DQuote + Plus + MemberTable
+						 + Plus + DQuote + SqlSet + DQuote + SingleSpace + Plus;
+		strWhere = DQuote + SqlWhere + SingleSpace + DQuote + Plus +
 				iKeyMember->MemberField + Plus + DQuote + EQ + DQuote + Plus + StrName +
 				"(" + iKeyMember->PropertyName + ")";
 		for (iMember=m_Members.begin(), n=0 ; iMember != m_Members.end() ; iMember++, n++) {
