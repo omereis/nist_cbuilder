@@ -26,6 +26,9 @@
 #include <FireDAC.VCLUI.Wait.hpp>
 #include <Vcl.Dialogs.hpp>
 #include <Vcl.ComCtrls.hpp>
+#include <Vcl.Menus.hpp>
+#include <Vcl.Grids.hpp>
+#include "ChannelInfo.h"
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -48,13 +51,25 @@ __published:	// IDE-managed Components
 	TUpDown *udChannels;
 	TUpDown *udHeading;
 	TUpDown *udDataStart;
+	TMainMenu *MainMenu1;
+	TMenuItem *File1;
+	TMenuItem *LoadData1;
+	TMenuItem *N1;
+	TMenuItem *Exit1;
+	TButton *btnParseData;
+	TStringGrid *gridData;
 	void __fastcall btnLoadFileClick(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
+	void __fastcall Exit1Click(TObject *Sender);
+	void __fastcall LoadData1Click(TObject *Sender);
+	void __fastcall btnParseDataClick(TObject *Sender);
 private:	// User declarations
 	int m_rowChannels;
 	int m_rowHeadings;
 	int m_rowDataStart;
+	TChannelInfoVec m_vChannels;
 protected:	// User declarations
+	void __fastcall LoadData ();
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
 };

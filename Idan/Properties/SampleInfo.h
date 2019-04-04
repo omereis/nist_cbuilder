@@ -2,6 +2,8 @@
 #ifndef	SampleInfoH
 #define	SampleInfoH
 //------------------------------------------------------------------------------
+#include <ADODB.hpp>
+#include "DBMisc.h"
 #include <vector>
 using namespace std;
 //------------------------------------------------------------------------------
@@ -16,16 +18,31 @@ public:
 	bool __fastcall operator!= (const TSampleInfo &other) const;
 	bool __fastcall operator== (const TSampleInfo &other) const;
 	void __fastcall Clear ();
+// ---------- Database Support ----------
+	bool __fastcall LoadFromDB (TADOQuery *query);
+	bool __fastcall InsertAsNew (TADOConnection *db, String &strErr);
+	bool __fastcall InsertAsNew (TADOQuery *query, String &strErr);
+	bool __fastcall UpdateInDB (TADOConnection *db, String &strErr);
+	bool __fastcall UpdateInDB (TADOQuery *query, String &strErr);
+	bool __fastcall DeleteInDB (TADOConnection *db, String &strErr);
+	bool __fastcall DeleteInDB (TADOQuery *query, String &strErr);
 //----- P r o p e r t i e s -----------------------------------------------
 	__property int SampleID = {read=GetSampleID, write=SetSampleID};
 	__property TDateTime SampleDateTime = {read=GetSampleDateTime, write=SetSampleDateTime};
 	__property double ValueMin = {read=GetValueMin, write=SetValueMin};
 	__property double ValueMax = {read=GetValueMax, write=SetValueMax};
 	__property bool Valid = {read=GetValid, write=SetValid};
+// ---------- S t a t i c ----------
+	static String Table;
+	static String ;
+	static String ;
+	static String ;
+	static String ;
+	static String ;
 protected:
 	void __fastcall AssignAll (const TSampleInfo &other);
 private:
-	int m_nSampleID;
+	int m_n;
 	TDateTime m_dt;
 	double m_dValueMin;
 	double m_dValueMax;
@@ -47,7 +64,9 @@ private:
 class TSampleInfoVec : public TSampleInfoBase {
 public:
 	__fastcall TSampleInfoVec ();
-
+// Vector Database Support
+	bool __fastcall LoadFromDB (TADOQuery *query, String &strErr);
+	bool __fastcall LoadFromDB (TADOConnection *db, String &strErr);
 };
 //------------------------------------------------------------------------------
 #endif

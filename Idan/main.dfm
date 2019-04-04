@@ -3,13 +3,14 @@ object Form1: TForm1
   Top = 0
   Caption = 'DAD Data Viewer'
   ClientHeight = 377
-  ClientWidth = 847
+  ClientWidth = 1067
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  Menu = MainMenu1
   OldCreateOrder = False
   OnCreate = FormCreate
   PixelsPerInch = 96
@@ -43,7 +44,7 @@ object Form1: TForm1
     Caption = 'Data Start'
   end
   object btnLoadFile: TButton
-    Left = 87
+    Left = 8
     Top = 8
     Width = 75
     Height = 25
@@ -62,6 +63,7 @@ object Form1: TForm1
     Font.Name = 'Courier New'
     Font.Style = []
     ParentFont = False
+    ScrollBars = ssBoth
     TabOrder = 1
   end
   object edtLines: TEdit
@@ -154,6 +156,32 @@ object Form1: TForm1
     Position = 29
     TabOrder = 11
   end
+  object btnParseData: TButton
+    Left = 96
+    Top = 8
+    Width = 75
+    Height = 25
+    Caption = 'Parse Data'
+    TabOrder = 12
+    OnClick = btnParseDataClick
+  end
+  object gridData: TStringGrid
+    Left = 584
+    Top = 32
+    Width = 449
+    Height = 337
+    ColCount = 2
+    FixedCols = 0
+    RowCount = 3
+    FixedRows = 2
+    GradientStartColor = 14079702
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goRowSelect]
+    TabOrder = 13
+    RowHeights = (
+      24
+      24
+      24)
+  end
   object WatertemperaturesConnection: TFDConnection
     Params.Strings = (
       'ConnectionDef=WaterTemperatures')
@@ -165,5 +193,23 @@ object Form1: TForm1
     Filter = 'Text Files|*.txt|Data Files|*.dat|All Files|*.*'
     Left = 520
     Top = 8
+  end
+  object MainMenu1: TMainMenu
+    Left = 80
+    Top = 256
+    object File1: TMenuItem
+      Caption = '&File'
+      object LoadData1: TMenuItem
+        Caption = '&Load Data...'
+        OnClick = LoadData1Click
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object Exit1: TMenuItem
+        Caption = 'E&xit'
+        OnClick = Exit1Click
+      end
+    end
   end
 end

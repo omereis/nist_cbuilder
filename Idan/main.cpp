@@ -19,6 +19,11 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall TForm1::btnLoadFileClick(TObject *Sender)
 {
+	LoadData ();
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::LoadData ()
+{
 	TStringList *lstr = NULL;
 	TCursor crOld;
 
@@ -58,6 +63,21 @@ void __fastcall TForm1::btnLoadFileClick(TObject *Sender)
 void __fastcall TForm1::FormCreate(TObject *Sender)
 {
     memoFileData->Anchors << akRight << akBottom;
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Exit1Click(TObject *Sender)
+{
+	Close ();
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::LoadData1Click(TObject *Sender)
+{
+	LoadData ();
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::btnParseDataClick(TObject *Sender)
+{
+	TChannelInfoVec m_vChannels;
 }
 //---------------------------------------------------------------------------
 

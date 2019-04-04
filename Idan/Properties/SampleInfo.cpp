@@ -6,6 +6,13 @@
 #pragma package(smart_init)
 
 //------------------------------------------------------------------------------
+String TSampleInfo::Table("");
+String TSampleInfo::     ("");
+String TSampleInfo::     ("");
+String TSampleInfo::     ("");
+String TSampleInfo::     ("");
+String TSampleInfo::     ("");
+//------------------------------------------------------------------------------
 __fastcall TSampleInfo::TSampleInfo ()
 {
 	Clear();
@@ -34,7 +41,7 @@ void __fastcall TSampleInfo::AssignAll (const TSampleInfo &other)
 void __fastcall TSampleInfo::Clear ()
 {
 	SampleID       = 0;
-	SampleDateTime = Now();
+	SampleDateTime = ;
 	ValueMin       = 0.0;
 	ValueMax       = 0.0;
 	Valid          = true;
@@ -57,12 +64,12 @@ bool __fastcall TSampleInfo::operator== (const TSampleInfo &other) const
 //------------------------------------------------------------------------------
 void __fastcall TSampleInfo::SetSampleID (const int value)
 {
-	m_nSampleID = value;
+	m_n = value;
 }
 //------------------------------------------------------------------------------
 int __fastcall TSampleInfo::GetSampleID () const
 {
-	return (m_nSampleID);
+	return (m_n);
 }
 //------------------------------------------------------------------------------
 void __fastcall TSampleInfo::SetSampleDateTime (const TDateTime &value)
@@ -105,11 +112,40 @@ bool __fastcall TSampleInfo::GetValid () const
 	return (m_fValid);
 }
 //------------------------------------------------------------------------------
-//------------------------------------------------------------------------------
-__fastcall TSampleInfoVec::TSampleInfoVec ()
-	: TSampleInfoBase ()
+bool __fastcall TSampleInfo::LoadFromDB (TADOQuery *query)
 {
-
+	bool f = true;
+	
+	try {
+		SampleID =       query->Fields->FieldByName ()->AsInteger;
+		SampleDateTime = query->Fields->FieldByName ()->Ass;
+		ValueMin =       query->Fields->FieldByName ()->AsFloat;
+		ValueMax =       query->Fields->FieldByName ()->AsFloat;
+		Valid =          query->Fields->FieldByName ()->AsBoolean;
+	}
+	catch (...) {
+		f = false;
+	}
+	return (f);;
 }
 //------------------------------------------------------------------------------
-
+bool __fastcall TSampleInfo::InsertAsNew (TADOConnection *db, String &strErr)
+{
+	bool f;
+	TADOQuery *query = InitQuery (db, NULL);
+	
+	f = InsertAsNew(query, strErr);
+	delete query;
+	return (f);
+}
+//------------------------------------------------------------------------------
+bool __fastcall TSampleInfo::UpdateInDB (TADOConnection *db, String &strErr)
+{
+	bool f;
+	TADOQuery *query = InitQuery (db, NULL);
+	
+	f = UpdateInDB(query, strErr);
+	delete query;
+	return (f);
+}
+//------------------------------------------------------------------------------

@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2019/03/19 15:30:33.668,=D:\Users\one4\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
-    <Transaction>2019/03/19 15:30:33.701,=D:\Users\one4\Documents\Embarcadero\Studio\Projects\File1.cpp</Transaction>
-    <Transaction>2019/03/19 15:31:26.413,D:\Users\one4\Documents\Embarcadero\Studio\Projects\Tests\main.cpp=D:\Users\one4\Documents\Embarcadero\Studio\Projects\File1.cpp</Transaction>
-    <Transaction>2019/03/19 15:31:38.939,D:\Users\one4\Documents\Embarcadero\Studio\Projects\Tests\TestPCH1.h=D:\Users\one4\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
-    <Transaction>2019/03/19 15:31:52.486,D:\Users\one4\Documents\Embarcadero\Studio\Projects\Tests\Test.cbproj=D:\Users\one4\Documents\Embarcadero\Studio\Projects\Project1.cbproj</Transaction>
+	<Transactions>
+    <Transaction>2019/03/19 15:30:33.000.701,=D:\Users\one4\Documents\Embarcadero\Studio\Projects\File1.cpp</Transaction>
+    <Transaction>2019/03/19 15:30:33.000.668,=D:\Users\one4\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>2019/03/19 15:31:26.000.413,D:\Users\one4\Documents\Embarcadero\Studio\Projects\File1.cpp=D:\Users\one4\Documents\Embarcadero\Studio\Projects\Tests\main.cpp</Transaction>
+    <Transaction>2019/03/19 15:31:38.000.939,D:\Users\one4\Documents\Embarcadero\Studio\Projects\Project1PCH1.h=D:\Users\one4\Documents\Embarcadero\Studio\Projects\Tests\TestPCH1.h</Transaction>
+    <Transaction>2019/03/19 15:31:52.000.486,D:\Users\one4\Documents\Embarcadero\Studio\Projects\Project1.cbproj=D:\Users\one4\Documents\Embarcadero\Studio\Projects\Tests\Test.cbproj</Transaction>
   </Transactions>
 </BorlandProject>

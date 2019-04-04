@@ -94,6 +94,10 @@ __published:	// IDE-managed Components
 	TAction *actExit;
 	TToolButton *ToolButton10;
 	TToolButton *ToolButton11;
+	TAction *actNew;
+	TToolButton *ToolButton12;
+	TToolButton *ToolButton13;
+	TMenuItem *miFileNew;
 	void __fastcall OnIdle(TObject *Sender, bool &Done);
 	void __fastcall actOpenExecute(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
@@ -113,6 +117,7 @@ __published:	// IDE-managed Components
 	void __fastcall actExitExecute(TObject *Sender);
 	void __fastcall actGenerateExecute(TObject *Sender);
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
+	void __fastcall actNewExecute(TObject *Sender);
 private:	// User declarations
 	TMembers m_vMembers;
 	String m_strParamsFile;
@@ -136,6 +141,7 @@ protected:	// User declarations
 	bool __fastcall UploadMemberRow (int nRow, TClassMemberInfo &member);
 	void __fastcall SetMemberRow (int nRow, const TClassMemberInfo &class_info);
 	bool __fastcall EditMember (TClassMemberInfo &member, bool fNew);
+	void __fastcall SaveCurrentParams ();
 
 	static int ColMemberID;
 	static int ColName;

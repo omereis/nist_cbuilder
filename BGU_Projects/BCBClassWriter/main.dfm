@@ -226,18 +226,32 @@ object formMain: TformMain
       Top = 0
       Action = actOpen
     end
-    object ToolButton2: TToolButton
+    object ToolButton12: TToolButton
       Left = 23
+      Top = 0
+      Caption = 'ToolButton12'
+      ImageIndex = 8
+    end
+    object ToolButton13: TToolButton
+      Left = 46
+      Top = 0
+      Width = 8
+      Caption = 'ToolButton13'
+      ImageIndex = 8
+      Style = tbsSeparator
+    end
+    object ToolButton2: TToolButton
+      Left = 54
       Top = 0
       Action = actSave
     end
     object ToolButton3: TToolButton
-      Left = 46
+      Left = 77
       Top = 0
       Action = actSaveAs
     end
     object ToolButton4: TToolButton
-      Left = 69
+      Left = 100
       Top = 0
       Width = 8
       Caption = 'ToolButton4'
@@ -245,22 +259,22 @@ object formMain: TformMain
       Style = tbsSeparator
     end
     object ToolButton6: TToolButton
-      Left = 77
+      Left = 108
       Top = 0
       Action = actMembersAdd
     end
     object ToolButton8: TToolButton
-      Left = 100
+      Left = 131
       Top = 0
       Action = actMemberEdit
     end
     object ToolButton9: TToolButton
-      Left = 123
+      Left = 154
       Top = 0
       Action = actMembersDel
     end
     object ToolButton7: TToolButton
-      Left = 146
+      Left = 177
       Top = 0
       Width = 8
       Caption = 'ToolButton7'
@@ -268,12 +282,12 @@ object formMain: TformMain
       Style = tbsSeparator
     end
     object ToolButton5: TToolButton
-      Left = 154
+      Left = 185
       Top = 0
       Action = actGenerate
     end
     object ToolButton10: TToolButton
-      Left = 177
+      Left = 208
       Top = 0
       Width = 8
       Caption = 'ToolButton10'
@@ -281,7 +295,7 @@ object formMain: TformMain
       Style = tbsSeparator
     end
     object ToolButton11: TToolButton
-      Left = 185
+      Left = 216
       Top = 0
       Action = actExit
     end
@@ -378,6 +392,9 @@ object formMain: TformMain
     Left = 544
     object miFile: TMenuItem
       Caption = '&File'
+      object miFileNew: TMenuItem
+        Action = actNew
+      end
       object miOpen: TMenuItem
         Action = actOpen
         Caption = 'L&oad Parameters'
@@ -485,6 +502,13 @@ object formMain: TformMain
       ImageIndex = 7
       OnExecute = actExitExecute
     end
+    object actNew: TAction
+      Category = 'File'
+      Caption = 'New'
+      ImageIndex = 8
+      Visible = False
+      OnExecute = actNewExecute
+    end
   end
   object dlgOpenParams: TOpenDialog
     DefaultExt = '*.prm'
@@ -495,7 +519,7 @@ object formMain: TformMain
   object ImageList1: TImageList
     Left = 376
     Bitmap = {
-      494C0101080009001C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101090048002C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000003000000001002000000000000030
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -883,11 +907,11 @@ object formMain: TformMain
       0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000424D3E000000000000003E000000
       2800000040000000300000000100010000000000800100000000000000000000
-      000000000000000000000000FFFFFF0000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000FFFFFFFFCFFF8000FFFFFFFF87CF0000
+      000000000000000000000000FFFFFF00FFFF000000000000E007000000000000
+      EFF7000000000000EFF7000000000000EFF7000000000000EFF7000000000000
+      EFF7000000000000EFF7000000000000EFF7000000000000EFF7000000000000
+      EF07000000000000EF6F000000000000EF5F000000000000EF3F000000000000
+      E07F000000000000FFFF000000000000FFFFFFFFCFFF8000FFFFFFFF87CF0000
       FFFFFFFF8387F00FFE7FE0078103F00FFE7FE007C003F00FFE7FE007E007F00F
       FE7FE007F00FF00FC007E007F81FF00FC007E007F81FF00FC007E007F01FF00F
       FC7FE007E00FF00FFC7FE007C107F00FFC7FE007C383FFFFFC7FFFFFE7C3F81F

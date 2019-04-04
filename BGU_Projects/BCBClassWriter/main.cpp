@@ -199,8 +199,13 @@ void __fastcall TformMain::Clear()
 //---------------------------------------------------------------------------
 void __fastcall TformMain::actSaveExecute(TObject *Sender)
 {
+	SaveCurrentParams ();
+}
+//---------------------------------------------------------------------------
+void __fastcall TformMain::SaveCurrentParams ()
+{
 	if (m_strParamsFile.Trim().IsEmpty())
-		actSaveAs->OnExecute (Sender);
+		actSaveAs->OnExecute (NULL);
 	else
 		SaveToFile (m_strParamsFile);
 }
@@ -426,6 +431,14 @@ void __fastcall TformMain::FormClose(TObject */*Sender*/, TCloseAction &/*Action
 void __fastcall TformMain::SaveParamsFile ()
 {
 	SaveIni (m_strIni, SecParams, IdentParamFile, ExtractFileDir (m_strParamsFile));
+}
+//---------------------------------------------------------------------------
+void __fastcall TformMain::actNewExecute(TObject *Sender)
+{
+	TClassInfo class_info;
+
+	SaveCurrentParams ();
+	Download (class_info);
 }
 //---------------------------------------------------------------------------
 
