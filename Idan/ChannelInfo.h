@@ -37,6 +37,7 @@ private:
 class TChannelInfoVec : public TChannelInfoBase {
 public:
 	__fastcall TChannelInfoVec ();
+	void ParseChannels (const String &strLineSource);
 };
 //------------------------------------------------------------------------------
 #endif

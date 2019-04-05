@@ -7,9 +7,9 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
-TForm1 *Form1;
+TfrmMain *frmMain;
 //---------------------------------------------------------------------------
-__fastcall TForm1::TForm1(TComponent* Owner)
+__fastcall TfrmMain::TfrmMain(TComponent* Owner)
 	: TForm(Owner)
 {
 	m_rowChannels = 25;
@@ -17,15 +17,16 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 	m_rowDataStart = 29;
 }
 //---------------------------------------------------------------------------
-void __fastcall TForm1::btnLoadFileClick(TObject *Sender)
+void __fastcall TfrmMain::btnLoadFileClick(TObject *Sender)
 {
 	LoadData ();
 }
 //---------------------------------------------------------------------------
-void __fastcall TForm1::LoadData ()
+String __fastcall TfrmMain::LoadData ()
 {
 	TStringList *lstr = NULL;
 	TCursor crOld;
+	String strFmt, strLine;
 
 	if (dlgOpenTxt->Execute()) {
 		try {
@@ -34,10 +35,10 @@ void __fastcall TForm1::LoadData ()
 				Screen->Cursor = crHourGlass;
 				lstr = new TStringList;
 				lstr->LoadFromFile(dlgOpenTxt->FileName);
+				m_strFile = dlgOpenTxt->FileName;
 				memoFileData->Clear();
 				int nLines = edtLines->Text.ToIntDef(1000);
 				int digits = (int) log10((double) nLines);
-				String strFmt, strLine;
 				memoFileData->Lines->BeginUpdate ();
 				for (int n=0 ; n < nLines ; n++) {
 					strFmt = String().sprintf (L"%%%dd: %%s", digits);
@@ -45,9 +46,10 @@ void __fastcall TForm1::LoadData ()
 					memoFileData->Lines->Add(strLine);
 				}
 				memoFileData->Lines->EndUpdate ();
-				MessageDlg (String(lstr->Count) + " lines read", mtInformation, TMsgDlgButtons() << mbOK, 0);
+//				MessageDlg (String(lstr->Count) + " lines read", mtInformation, TMsgDlgButtons() << mbOK, 0);
 			} catch (Exception &e)
 			{
+				m_strFile = "";
 				MessageDlg ("Button1Click: " + e.Message, mtInformation, TMsgDlgButtons() << mbOK, 0);
 			}
 		}
@@ -58,26 +60,80 @@ void __fastcall TForm1::LoadData ()
 			}
 		}
 	}
+    return (m_strFile);
 }
 //---------------------------------------------------------------------------
-void __fastcall TForm1::FormCreate(TObject *Sender)
+void __fastcall TfrmMain::FormCreate(TObject *Sender)
 {
     memoFileData->Anchors << akRight << akBottom;
 }
 //---------------------------------------------------------------------------
-void __fastcall TForm1::Exit1Click(TObject *Sender)
+void __fastcall TfrmMain::Exit1Click(TObject *Sender)
 {
 	Close ();
 }
 //---------------------------------------------------------------------------
-void __fastcall TForm1::LoadData1Click(TObject *Sender)
+void __fastcall TfrmMain::LoadData1Click(TObject *Sender)
 {
 	LoadData ();
 }
 //---------------------------------------------------------------------------
-void __fastcall TForm1::btnParseDataClick(TObject *Sender)
+bool __fastcall GetFileData (const String &strFile, TStringList *lstr)
 {
-	TChannelInfoVec m_vChannels;
+	TFileStream *fstrm;
+	bool f;
+
+	try {
+		try {
+			fstrm = new TFileStream (strFile, fmOpenRead | fmShareDenyWrite);
+            lstr->LoadFromStream (fstrm);
+			f = true;
+		}
+		catch (...) {
+			f = false;
+		}
+	}
+	__finally {
+		if (fstrm)
+			delete fstrm;
+	}
+	return (f);
+}
+//---------------------------------------------------------------------------
+void __fastcall TfrmMain::btnParseDataClick(TObject *Sender)
+{
+	TChannelInfoVec vChannels;
+	TStringList *lstr = NULL;
+
+	try {
+		try {
+			lstr = new TStringList;
+			GetFileData (m_strFile, lstr);
+			vChannels.ParseChannels (lstr->Strings[ChannelsLine]);
+		}
+		catch (Exception &e) {
+			MessageDlg (e.Message, mtError, TMsgDlgButtons() << mbOK, 0);
+		}
+	}
+	__finally {
+		if (lstr)
+			delete lstr;
+	}
+}
+//---------------------------------------------------------------------------
+int __fastcall TfrmMain::GetChannelsLine ()
+{
+	return (edtChannels->Text.ToIntDef(0) - 1);
+}
+//---------------------------------------------------------------------------
+void __fastcall TfrmMain::SetChannelsLine (int nLine)
+{
+    udChannels->Position = nLine;
+}
+//---------------------------------------------------------------------------
+void __fastcall TfrmMain::OnIdle(TObject *Sender, bool &Done)
+{
+	btnParseData->Enabled = m_strFile.Trim().Length() > 0;
 }
 //---------------------------------------------------------------------------
 

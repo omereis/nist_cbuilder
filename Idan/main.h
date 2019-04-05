@@ -29,8 +29,9 @@
 #include <Vcl.Menus.hpp>
 #include <Vcl.Grids.hpp>
 #include "ChannelInfo.h"
+#include <Vcl.AppEvnts.hpp>
 //---------------------------------------------------------------------------
-class TForm1 : public TForm
+class TfrmMain : public TForm
 {
 __published:	// IDE-managed Components
 	TFDConnection *WatertemperaturesConnection;
@@ -58,22 +59,28 @@ __published:	// IDE-managed Components
 	TMenuItem *Exit1;
 	TButton *btnParseData;
 	TStringGrid *gridData;
+	TApplicationEvents *ApplicationEvents1;
 	void __fastcall btnLoadFileClick(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall Exit1Click(TObject *Sender);
 	void __fastcall LoadData1Click(TObject *Sender);
 	void __fastcall btnParseDataClick(TObject *Sender);
+	int __fastcall GetChannelsLine ();
+	void __fastcall SetChannelsLine (int nLine);
+	void __fastcall OnIdle(TObject *Sender, bool &Done);
 private:	// User declarations
 	int m_rowChannels;
 	int m_rowHeadings;
 	int m_rowDataStart;
 	TChannelInfoVec m_vChannels;
+	String m_strFile;
 protected:	// User declarations
-	void __fastcall LoadData ();
+	String __fastcall LoadData ();
 public:		// User declarations
-	__fastcall TForm1(TComponent* Owner);
+	__property int ChannelsLine = {read=GetChannelsLine, write=SetChannelsLine};
+	__fastcall TfrmMain(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TForm1 *Form1;
+extern PACKAGE TfrmMain *frmMain;
 //---------------------------------------------------------------------------
 #endif

@@ -114,7 +114,7 @@
             <BuildOrder>4</BuildOrder>
         </CppCompile>
         <CppCompile Include="main.cpp">
-            <Form>Form1</Form>
+            <Form>frmMain</Form>
             <FormType>dfm</FormType>
             <DependentOn>main.h</DependentOn>
             <BuildOrder>2</BuildOrder>

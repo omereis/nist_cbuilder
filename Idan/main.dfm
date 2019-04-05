@@ -1,4 +1,4 @@
-object Form1: TForm1
+object frmMain: TfrmMain
   Left = 0
   Top = 0
   Caption = 'DAD Data Viewer'
@@ -211,5 +211,10 @@ object Form1: TForm1
         OnClick = Exit1Click
       end
     end
+  end
+  object ApplicationEvents1: TApplicationEvents
+    OnIdle = OnIdle
+    Left = 568
+    Top = 8
   end
 end
