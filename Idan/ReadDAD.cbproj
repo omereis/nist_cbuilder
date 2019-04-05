@@ -59,8 +59,8 @@
         <Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
         <UWP_CppLogo44>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_44.png</UWP_CppLogo44>
         <UWP_CppLogo150>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_150.png</UWP_CppLogo150>
-        <IncludePath>Idan\;$(IncludePath)</IncludePath>
-        <ILINK_LibraryPath>Idan\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <IncludePath>..\Globals\;Idan\;$(IncludePath)</IncludePath>
+        <ILINK_LibraryPath>..\Globals\;Idan\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
         <SanitizedProjectName>ReadDAD</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
@@ -109,6 +109,10 @@
         <AppEnableHighDPI>true</AppEnableHighDPI>
     </PropertyGroup>
     <ItemGroup>
+        <CppCompile Include="..\Globals\Misc.cpp">
+            <DependentOn>..\Globals\Misc.h</DependentOn>
+            <BuildOrder>5</BuildOrder>
+        </CppCompile>
         <CppCompile Include="ChannelInfo.cpp">
             <DependentOn>ChannelInfo.h</DependentOn>
             <BuildOrder>4</BuildOrder>

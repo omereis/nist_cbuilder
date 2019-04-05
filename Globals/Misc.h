@@ -6,6 +6,8 @@
 #include <Grids.hpp>
 #include <stdio.h>
 #include <inifiles.hpp>
+#include <cwchar>
+#include <iostream>
 //---------------------------------------------------------------------------
 void __fastcall EnableEdit  (TEdit *edt, bool fEnabled);
 void __fastcall ClearGrid (TStringGrid *grid);
@@ -20,6 +22,7 @@ void __fastcall SetComboText (TComboBox *combo, const String &str);
 void __fastcall ClearGridRow (TStringGrid *grid, int nRow);
 void __fastcall DeleteLine (TStringGrid *grid, int nRow);
 String __fastcall RemoveCRLF (const String &strSrc);
+int __fastcall Tokenize (const String &strLine, TStringList *lstr, const String &strDelimiter = ",");
 
 //---------------------------------------------------------------------------
 #endif

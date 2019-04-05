@@ -110,6 +110,7 @@ void __fastcall TfrmMain::btnParseDataClick(TObject *Sender)
 			lstr = new TStringList;
 			GetFileData (m_strFile, lstr);
 			vChannels.ParseChannels (lstr->Strings[ChannelsLine]);
+			vChannels.ParseChannels (lstr->Strings[ChannelsLine]);
 		}
 		catch (Exception &e) {
 			MessageDlg (e.Message, mtError, TMsgDlgButtons() << mbOK, 0);

@@ -28,7 +28,8 @@ void __fastcall TSampleInfo::AssignAll (const TSampleInfo &other)
 	SampleDateTime = other.SampleDateTime;
 	ValueMin       = other.ValueMin;
 	ValueMax       = other.ValueMax;
-	Valid          = other.Valid;
+	MinValid       = other.MinValid;
+	MaxValid       = other.MaxValid;
 }
 //------------------------------------------------------------------------------
 void __fastcall TSampleInfo::Clear ()
@@ -37,7 +38,8 @@ void __fastcall TSampleInfo::Clear ()
 	SampleDateTime = Now();
 	ValueMin       = 0.0;
 	ValueMax       = 0.0;
-	Valid          = true;
+	MinValid       = true;
+	MaxValid       = true;
 }
 //------------------------------------------------------------------------------
 bool __fastcall TSampleInfo::operator== (const TSampleInfo &other) const
@@ -50,7 +52,9 @@ bool __fastcall TSampleInfo::operator== (const TSampleInfo &other) const
 		return (false);
 	if (ValueMax       != other.ValueMax)
 		return (false);
-	if (Valid          != other.Valid)
+	if (MinValid       != other.MinValid)
+		return (false);
+	if (MaxValid       != other.MaxValid)
 		return (false);
 	return (true);
 }
@@ -95,14 +99,24 @@ double __fastcall TSampleInfo::GetValueMax () const
 	return (m_dValueMax);
 }
 //------------------------------------------------------------------------------
-void __fastcall TSampleInfo::SetValid (const bool value)
+void __fastcall TSampleInfo::SetMinValid (const bool value)
 {
-	m_fValid = value;
+	m_fMinValid = value;
 }
 //------------------------------------------------------------------------------
-bool __fastcall TSampleInfo::GetValid () const
+bool __fastcall TSampleInfo::GetMinValid () const
 {
-	return (m_fValid);
+	return (m_fMinValid);
+}
+//------------------------------------------------------------------------------
+void __fastcall TSampleInfo::SetMaxValid (const bool value)
+{
+	m_fMaxValid = value;
+}
+//------------------------------------------------------------------------------
+bool __fastcall TSampleInfo::GetMaxValid () const
+{
+	return (m_fMaxValid);
 }
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------

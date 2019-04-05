@@ -133,5 +133,19 @@ String __fastcall RemoveCRLF (const String &strSrc)
 	String strNoCRLF = StringReplace (strNoCR, "\r","", TReplaceFlags () << rfReplaceAll);
 	return (strNoCRLF);
 }
+//------------------------------------------------------------------------------
+int __fastcall Tokenize (const String &strLine, TStringList *lstr, const String &strDelimiter)
+{
+	wchar_t *szBuffer, *szToken;
+
+	szToken = std::wcstok(strLine.w_str(), strDelimiter.w_str());
+	lstr->Clear();
+	while (szToken) {
+		lstr->Add(szToken);
+		szToken = std::wcstok(NULL, strDelimiter.w_str());
+
+	}
+	return (lstr->Count);
+}
 //---------------------------------------------------------------------------
 
